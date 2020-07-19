@@ -4,6 +4,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
+import java.util.List;
+
 public class DashBoardPage extends BasePage {
 
     @FindBy(xpath = "(//span[@class='title title-level-1'])[2]")
@@ -14,5 +16,11 @@ public class DashBoardPage extends BasePage {
 
     @FindBy(xpath = "//table[@class='grid table-hover table table-bordered table-condensed']")
     public WebElement vehicleTable;
+
+
+
+
+
+
 
 }

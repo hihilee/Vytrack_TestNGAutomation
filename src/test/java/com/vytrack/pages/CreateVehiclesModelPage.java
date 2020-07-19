@@ -4,11 +4,12 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
 import javax.annotation.ParametersAreNonnullByDefault;
+import java.util.List;
 
-public class VehiclesModelPage extends BasePage {
+public class CreateVehiclesModelPage extends BasePage {
 
-    @FindBy(xpath = "//a[@title='Create Vehicles Model']")
-    public WebElement createVehicleModelButton;
+    @FindBy(linkText = "Create Vehicles Model")
+    public WebElement createVehiclesModelButton;
 
     @FindBy(xpath = "//a[.='General']")
     public WebElement titleGeneral;
@@ -26,9 +27,12 @@ public class VehiclesModelPage extends BasePage {
     public WebElement makeInput;
 
     @FindBy(xpath = "(//span[@class='select2-chosen'])[1]")
-    public WebElement requestClick;
+    public WebElement canBeRequestedOption;
 
-    @FindBy(xpath = "(//span[@class='select2-chosen'])[1]")
+    @FindBy(xpath = "//div[@class='select2-result-label']")
+    public List<WebElement> yesNoOptions;
+
+    @FindBy(xpath = "(//div[@class='select2-result-label'])[2]")
     public WebElement yesClick;
 
     @FindBy(xpath = "//input[contains(@id,'custom_entity_type_Logo_file')]")
@@ -51,29 +55,24 @@ public class VehiclesModelPage extends BasePage {
     @FindBy(xpath = "//input[contains(@id,'CO2Emissions')]")
     public WebElement co2EmissiosInput;
 
-    @FindBy(xpath = "//select[@data-name='field__fuel-type']")
-    public WebElement fuelTypes;
+    @FindBy(xpath = "(//span[@class='select2-chosen'])[2]")
+    public WebElement fuelTypeMenu;
+
+    @FindBy(xpath = "//div[@class='select2-result-label']")
+    public List<WebElement> fuelTypeOptions;
 
     @FindBy(xpath = "//input[contains(@id,'Vendors')]")
     public WebElement vendorsInput;
 
-    @FindBy(xpath = "(//button[@class='btn btn-success action-button']")
-    public WebElement saveCloseButton;
+    @FindBy(xpath = "//button[@class='btn btn-success action-button']")
+    public WebElement saveAndCloseButton;
 
+    @FindBy(xpath = "//h1[@class='user-name']")
+    public WebElement createdVehicleNumber;
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+    //BAKALIM,SORALIM
+   // @FindBy(xpath = "//div[@class='flash-messages-holder']")
+    public WebElement entitySavedMessage;
 
 
 }

@@ -2,20 +2,13 @@ package com.vytrack.tests;
 
 
 import com.vytrack.pages.*;
-import com.vytrack.utilities.ConfigurationReader;
 import com.vytrack.utilities.Driver;
-import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
-import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
-import javax.accessibility.AccessibleRelation;
-import javax.imageio.plugins.jpeg.JPEGImageReadParam;
-import javax.swing.plaf.TableHeaderUI;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -29,8 +22,9 @@ public class FuelTypeTest extends TestBase  {
     @Test(priority = 3)
     public void fuel_type(){
 
-        CreateVehiclesPage createVehiclesPage=new CreateVehiclesPage();
-        createVehiclesPage.fuelType.click();
+        CreateVehiclesModelPage vehiclesModelPage=new CreateVehiclesModelPage();
+
+        vehiclesModelPage.fuelTypeMenu.click();
 
         List<String> expected=new ArrayList<>(Arrays.asList("Gasoline","Diesel","Electric","Hybrid"));
 

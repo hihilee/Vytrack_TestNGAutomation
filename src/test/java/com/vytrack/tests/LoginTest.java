@@ -3,6 +3,9 @@ package com.vytrack.tests;
 import com.vytrack.pages.DashBoardPage;
 import com.vytrack.pages.LoginPage;
 import com.vytrack.utilities.ConfigurationReader;
+import com.vytrack.utilities.Driver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.Assert;
 import org.testng.annotations.Test;
@@ -15,22 +18,22 @@ public class LoginTest extends TestBase {
      */
 
     @Test(description = "login")
-    public void Login()  {
+    public void Login() throws Exception  {
 
         LoginPage loginPage=new LoginPage();
-        loginPage.usernameInput.sendKeys(ConfigurationReader.getProperty("username"));
-        loginPage.passwordInput.sendKeys(ConfigurationReader.getProperty("password"));
-        loginPage.loginButton.click();
+        DashBoardPage dashBoardPage=new DashBoardPage();
+        Actions actions=new Actions(Driver.getDriver());
 
+        loginPage.login();
+        Thread.sleep(2000);
 
-        DashBoardPage dashBoardPage= new DashBoardPage();
-        dashBoardPage.fleetMenu.click();
-        wait.until(ExpectedConditions.visibilityOf(dashBoardPage.fleetMenu));
+        actions.moveToElement(dashBoardPage.fleetMenu).perform();
+        Thread.sleep(2000);
         dashBoardPage.VehiclePageLink.click();
-        wait.until(ExpectedConditions.elementToBeClickable(dashBoardPage.VehiclePageLink));
-
+        Thread.sleep(2000);
 
         Assert.assertTrue(dashBoardPage.vehicleTable.isDisplayed());
+
     }
 
 }
